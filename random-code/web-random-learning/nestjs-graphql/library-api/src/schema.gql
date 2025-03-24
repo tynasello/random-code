@@ -1,0 +1,80 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  id: Int!
+  name: String!
+  books: [Book!]
+}
+
+type Book {
+  id: Int!
+  title: String!
+  author: Author
+  authorId: Int
+}
+
+type User {
+  id: Int!
+  username: String!
+  password: String!
+}
+
+type LoginSignupRefreshResponse {
+  at: String!
+  rt: String!
+}
+
+type LogoutResponse {
+  username: String!
+}
+
+type Query {
+  books: [Book!]!
+  book(id: Int!): Book!
+  authors: [Author!]!
+  author(id: Int!): Author!
+  user: User!
+}
+
+type Mutation {
+  createBook(createBookInput: CreateBookInput!): Book!
+  updateBook(updateBookInput: UpdateBookInput!, id: Int!): Book!
+  removeBook(id: Int!): Book!
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
+  updateAuthor(updateAuthorInput: UpdateAuthorInput!, id: Int!): Author!
+  removeAuthor(id: Int!): Author!
+  signup(createUserInput: CreateUserInput!): LoginSignupRefreshResponse!
+  login(loginInput: LoginInput!): LoginSignupRefreshResponse!
+  logout: LogoutResponse!
+  refreshTokens: LoginSignupRefreshResponse!
+}
+
+input CreateBookInput {
+  title: String!
+  authorId: Int!
+}
+
+input UpdateBookInput {
+  title: String!
+  authorId: Int!
+}
+
+input CreateAuthorInput {
+  name: String!
+}
+
+input UpdateAuthorInput {
+  name: String!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}

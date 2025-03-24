@@ -1,0 +1,8 @@
+.dockerignore
+.git
+*Dockerfile*
+*docker-compose*
+node_modules
+dist
+npm-debug
+docker-volumes

@@ -1,0 +1,1 @@
+Followed [this](https://www.youtube.com/watch?v=9SGDpanrc8U&ab_channel=Amigoscode) tutorial while learning Spring Boot. Created a simple movie REST API serving data from a PostgreSQL database. Repository interfaces and finder methods using Spring data JPA.

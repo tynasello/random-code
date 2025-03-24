@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Actor {
+  id: Int!
+  name: String!
+  movieId: Int!
+  movie: Movie!
+  getMovie: [Actor!]!
+}
+
+type Movie {
+  id: Int!
+  title: String!
+  rating: Int
+  actors: [Actor!]
+}
+
+type Query {
+  movies: [Movie!]!
+  getMovie(id: Int!): Movie!
+  actors: [Actor!]!
+  getActor(id: Int!): Actor!
+}
+
+type Mutation {
+  createMovie(createMovieInput: CreateMovieInput!): Movie!
+  createActor(createActorInput: CreateActorInput!): Actor!
+}
+
+input CreateMovieInput {
+  title: String!
+  rating: Int
+}
+
+input CreateActorInput {
+  name: String!
+  movieId: Int
+}

@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  fda_api:
+    container_name: fda_api
+    image: fda_api:1.0.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run start:debug
+    ports:
+      - 3001:3001
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    networks:
+      - fda_network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+
+  fda_db:
+    image: postgres:13
+    container_name: fda_db
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - fda_db:/var/lib/postgresql/data
+
+volumes:
+  fda_db:
+    name: fda_db
+networks:
+  fda_network:
+    name: fda_network

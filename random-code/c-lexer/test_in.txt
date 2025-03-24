@@ -1,0 +1,5 @@
+char c = 5;
+
+if (c == 5) {
+  printf("matches");
+}
